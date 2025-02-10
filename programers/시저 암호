@@ -1,0 +1,17 @@
+class Solution {
+    public String solution(String s, int n) {
+        StringBuilder answer = new StringBuilder();
+        
+        for( char c : s.toCharArray()){
+            if(Character.isLetter(c)){
+                char base = Character.isLowerCase(c)? 'a' :'A';
+                char shifted = (char)((c - base +n)%26 +base);
+                
+                answer.append(shifted);
+            }else{
+                answer.append(c);
+            }
+        }
+        return answer.toString();
+    }
+}
