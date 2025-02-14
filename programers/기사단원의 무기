@@ -8,7 +8,7 @@ class Solution {
         for(int i =0;i<number;i++){
             yaksoo[i] = countDivisors(i+1);
             
-            //약수 개수가 power 이상이면 power 
+            //약수 개수가 limit 이상이면 power 
             if(yaksoo[i]>limit){
                yaksoo[i] = power;
             }
