@@ -1,0 +1,27 @@
+
+import java.util.Scanner;
+
+public class Main {
+   public Integer solution(String str){
+       int answer = 0;
+       String tmp ="";
+
+       for(int i =0;i<str.length();i++){
+           if(str.charAt(i)>=48 && str.charAt(i)<=57){
+               tmp += str.charAt(i) - '0';
+           }
+       }
+
+       answer = Integer.parseInt(tmp);
+       return answer;
+   }
+
+    public static void main(String[] args){
+      Main T = new Main();
+      Scanner in = new Scanner(System.in);
+      String str = in.next();
+
+      System.out.println(T.solution(str));
+
+    }
+}
