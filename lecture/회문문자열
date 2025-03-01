@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public String solution(String str){
+        String answer ="NO";
+
+        String tmp = new StringBuilder(str).reverse().toString();
+
+        if(tmp.equalsIgnoreCase(str)) answer = "YES";
+
+
+        /*str = str.toLowerCase();
+
+       int end = str.length()-1;
+
+       for(int i =0;i<str.length()/2;i++){
+           if(str.charAt(i) == str.charAt(end)){
+               answer = "YES";
+               end--;
+           }else answer = "NO";
+       }*/
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.nextLine();
+
+        System.out.print(T.solution(str));
+    }
+}
