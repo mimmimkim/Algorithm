@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public int solution(int num, int[] height) {
+        int answer = 1;
+        int max =height[0];
+
+        for(int i =0; i<num-1;i++){
+            if(max<height[i+1]){
+                answer++;
+                max = height[i+1];
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num = in.nextInt();
+        int[] height = new int[num];
+
+        for(int i =0;i<num;i++){
+            height[i] = in.nextInt();
+        }
+
+        System.out.println(T.solution(num, height));
+    }
+}
