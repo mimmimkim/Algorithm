@@ -1,0 +1,67 @@
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public int solution(int num, int[][] arr) {
+        int answer = 0;
+        int[] sum = new int[num*2 +2];
+
+        int idx = 0;
+
+        //행 덧셈
+        for(int i = 0; i < num; i++){
+            for(int j = 0; j < num; j++){
+                sum[idx] += arr[i][j];
+            }
+            idx++;
+        }
+
+        //열 덧셈
+        for(int i = 0; i < num; i++){
+            for(int j = 0; j < num; j++){
+                sum[idx] += arr[j][i];
+            }
+            idx++;
+        }
+
+        //대각선 1
+        for(int i =0;i<num;i++){
+            sum[idx] += arr[i][i];
+        }
+        idx++;
+
+        //대각선 2
+        for(int i = 0; i < num; i++){
+            sum[idx] += arr[i][num-1-i];
+        }
+        idx++;
+
+        //최댓값 구하기
+        for(int i =0;i<idx;i++){
+            answer = Math.max(answer, sum[i]);
+        }
+
+        System.out.println(Arrays.toString(sum));
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num = in.nextInt(); //num 입력 받기
+
+        int[][] arr = new int[num][num];  //다음으로 입력 받을 배열 생성
+        for(int i =0;i<num;i++){ //배열에 숫자 저장
+            for(int j =0;j<num;j++){
+                arr[i][j] = in.nextInt();
+            }
+        }
+
+        System.out.println(T.solution(num, arr));
+
+
+    }
+}
