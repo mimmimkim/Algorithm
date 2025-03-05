@@ -1,0 +1,38 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public int[] solution(int num, int[] arr) {
+        int[] answer = new int[num];
+
+        for(int i =0;i<num;i++){
+            int idx =1;
+            for(int j =0;j<num;j++){
+                if(arr[i]<arr[j]){
+                    idx++;
+                }
+            }
+            answer[i] = idx;
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num = in.nextInt(); //num 입력 받기
+
+        int[] arr = new int[num];  //다음으로 입력 받을 배열 생성
+        for(int i =0;i<num;i++){ //배열에 숫자 저장
+            arr[i] = in.nextInt();
+        }
+
+        for(int tmp : T.solution(num, arr)){ //출력할 방법 쓰기
+            System.out.print(tmp + " ");
+        }
+
+
+    }
+}
