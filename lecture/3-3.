@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public int solution(int num1, int num2, int[] arr1) {
+        int answer;
+        int[] sum= new int[num1-num2+1];
+
+        int idx = 0;
+
+        for(int i =0;i<num1-num2+1;i++) {
+            for (int j = 0; j < num2; j++) {
+                sum[idx] += arr1[j + i];
+            }
+            idx++;
+        }
+
+        Arrays.sort(sum);
+        answer = sum[num1-num2];
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num1 = in.nextInt();
+        int num2 = in.nextInt();
+
+        int[] arr1 = new int[num1];
+        for(int i =0;i<num1;i++){
+            arr1[i] = in.nextInt();
+        }
+
+        System.out.println(T.solution(num1, num2, arr1));
+        in.close();
+    }
+}
