@@ -1,0 +1,55 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public ArrayList<Integer> solution(int num1, int num2, int[] arr1, int[] arr2) {
+        ArrayList<Integer> answer = new ArrayList<>();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        int op1 = 0;
+        int op2 = 0;
+
+        while(op1 < num1 && op2 < num2) {
+            if(arr1[op1]==arr2[op2]){
+                answer.add(arr1[op1]);
+                op1++;
+                op2++;
+            }else if(arr1[op1]<arr2[op2]){
+                op1++;
+            }else{
+                op2++;
+            }
+        }
+
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num1 = in.nextInt();
+
+        int[] arr1 = new int[num1];
+        for(int i =0;i<num1;i++){
+            arr1[i] = in.nextInt();
+        }
+        int num2 = in.nextInt();
+
+        int[] arr2 = new int[num1];
+        for(int i =0;i<num1;i++){
+            arr2[i] = in.nextInt();
+        }
+
+        for(int c : T.solution(num1, num2, arr1, arr2)){
+            System.out.print(c + " ");
+        }
+        in.close();
+    }
+}
