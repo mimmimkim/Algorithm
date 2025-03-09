@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public int solution(int num1, int num2, int[] arr) {
+        int answer = 0;
+        int sum = 0;
+        int start = 0;
+
+        for(int end = 0; end<num1;end++){
+            sum += arr[end];
+
+            while(sum > num2){
+                sum -= arr[start];
+                start++;
+            }
+
+            if(sum == num2){
+                answer++;
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner in = new Scanner(System.in);
+
+        int num1 = in.nextInt();
+        int num2 = in.nextInt();
+
+        int[] arr = new int[num1];
+        for(int i =0;i<num1;i++){
+            arr[i] = in.nextInt();
+        }
+
+        System.out.println(T.solution(num1, num2, arr));
+        in.close();
+    }
+}
